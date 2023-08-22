@@ -1,8 +1,98 @@
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
 
 const Home = () => {
+  // const screen = window.innerWidth
   return (
-    <div>Home</div>
+    <div>
+          <div className="w-full m-4">
+              <Link href="/">
+                  <Image
+                      src="/logo.svg"
+                      width={150}
+                      height={80}
+                      alt="logo"
+                  />
+              </Link>
+          </div>
+
+          <div className="">
+
+          {/* { screen < 765 && <div> */}
+               <div className="w-full">
+                    <Image
+                      className=""
+                      src="/HeroImageMobile.jpg"
+                      width={400}
+                      height={350}
+                      layout="responsive"
+                      alt="hero image"
+                    />
+               </div>
+               <div className="p-6">
+                    <h3 className="header font-bold sm:text-4xl capitalize">Explore the best camps on earth</h3>
+                    <p className="description font-2xl">YelpCamp is a curated list of the best camping spots on Earth. Unfiltered and unbiased reviews.</p>
+                    <div className="flex py-2">
+                        <Image
+                          src="/CheckMark.svg"
+                          alt="checkmark"
+                          width={20}
+                          height={20}
+                        />
+                       <span className="px-3">Add your own camp suggestions.</span> 
+                    </div> 
+                    <div className="flex py-2">
+                    <Image
+                          src="/CheckMark.svg"
+                          alt="checkmark"
+                          width={20}
+                          height={20}
+                        />
+                       <span className="px-3 pt-1">Leave reviews and experiences.</span> 
+                    </div>
+                    <div className="flex pt-2 pb-3">
+                    <Image
+                          src="/CheckMark.svg"
+                          alt="checkmark"
+                          width={20}
+                          height={20}
+                        />
+                       <span className="px-3">See locations for all camps.</span> 
+                    </div>
+                    <Link href="/campgrounds"><div className="w-40 bg-black text-white text-sm py-3 px-3 rounded capitalize">view campgrounds</div></Link>
+  
+                    <div className="py-3">
+                        <h5>Partnered with:</h5>
+                        <div className="flex px-2">
+                        <Image
+                          src="/Airbnb.svg"
+                          alt="airbnb logo "
+                          width={100}
+                          height={75}
+                        />
+
+                        <Image  
+                          src="/Booking.svg"
+                          alt="Booking logo "
+                          width={100}
+                          height={75}
+                        />
+
+                        <Image  
+                          src="/PlumGuide.svg"
+                          alt="PlumGuide logo "
+                          width={100}
+                          height={75}
+                        />
+                            
+                        </div>
+                    </div>
+               </div>
+            {/* </div>}  */}
+
+          </div>
+        
+    </div>
   )
 }
 
