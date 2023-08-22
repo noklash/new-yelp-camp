@@ -33,7 +33,7 @@ export interface UserProfile {
     avatarUrl: string;
     facebook: string | null;
     linkedinUrl: string | null;
-    projects: {
+    posts: {
       edges: { node: PostInterface }[];
       pageInfo: {
         hasPreviousPage: boolean;
