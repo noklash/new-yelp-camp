@@ -9,13 +9,13 @@ const User = g.model('User', {
   description: g.string().length({ min: 2, max: 1000 }).optional(),
   facebook: g.url().optional(),
   linkedinUrl: g.url().optional(), 
-  projects: g.relation(() => Post).list().optional(),
+  posts: g.relation(() => Post).list().optional(),
 }).auth((rules) => {
   rules.public().read()
 })
 
 // @ts-ignore
-const Post = g.model('Project', {
+const Post = g.model('Post', {
   title: g.string().length({ min: 3 }),
   description: g.string(), 
   image: g.url(),

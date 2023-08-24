@@ -6,7 +6,9 @@ import GithubProvider from "next-auth/providers/github"
 import jsonweboken from "jsonwebtoken";
 import { JWT } from "next-auth/jwt";
 
-// import { createUser, getUser } from "./actions";
+import { User } from "next-auth";
+
+import { createUser, getUser } from "./actions";
 import { SessionInterface, UserProfile } from "@/common.types";
 
 export const authOptions: NextAuthOptions = {
