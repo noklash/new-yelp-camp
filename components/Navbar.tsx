@@ -2,8 +2,10 @@ import Image from "next/image"
 import Link from "next/link"
 import AuthProviders from "./AuthProviders"
 
-const Navbar = () => {
-  const session = null
+import { getCurrentUser } from "@/lib/session"
+
+const Navbar = async () => {
+  const session = await getCurrentUser()
   return (
     <div className="m-4">
         <div className="w-full flex">

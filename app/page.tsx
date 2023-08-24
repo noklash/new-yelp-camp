@@ -27,7 +27,7 @@ const Home = () => {
                       src="/HeroImageMobile.jpg"
                       width={400}
                       height={350}
-                      layout="responsive"
+                      // layout="responsive"
                       alt="hero image"
                     />
                </div>
@@ -101,7 +101,7 @@ const Home = () => {
                       src="/HeroImage.jpg"
                       width={400}
                       height={400}
-                      layout="responsive"
+                      // layout="responsive"
                       alt="hero image"
                       // objectFit="cover"
                     />
