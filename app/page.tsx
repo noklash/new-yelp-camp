@@ -23,7 +23,7 @@ const Home = () => {
           {/* { screen < 765 && <div> */}
                <div className="w-full lg:hidden">
                     <Image
-                      className=""
+                      className="w-full"
                       src="/HeroImageMobile.jpg"
                       width={400}
                       height={350}
@@ -97,7 +97,7 @@ const Home = () => {
 {/* this is for the desktop view */}
                 <div className="w-1/2 hidden lg:flex overflow-hidden ">
                     <Image
-                      className=""
+                      className="w-full"
                       src="/HeroImage.jpg"
                       width={400}
                       height={400}

@@ -32,7 +32,7 @@ export const updatePostMutation = `
 
 export const deletePostMutation = `
   mutation DeletePost($id: ID!) {
-    posttDelete(by: { id: $id }) {
+    postDelete(by: { id: $id }) {
       deletedId
     }
   }

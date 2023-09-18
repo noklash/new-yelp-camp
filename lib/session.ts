@@ -79,7 +79,7 @@ export const authOptions: NextAuthOptions = {
 
                 return true;            
             }  catch (error: any){
-                console.log("Eroor chevking if user exists: ", error.message);
+                console.log("Error checking if user exists: ", error.message);
                 return false;
             }
         }
