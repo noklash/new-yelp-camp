@@ -18,9 +18,16 @@ const Navbar = async () => {
                 />
             </Link>
 
-            {session ? (
+            {session?.user ? (
               <>
-              UserPhoto
+              {/* <Link href="#" className="rounded-full">
+                <Image
+                    src={session.user.image}
+                    width={150}
+                    height={80}
+                    alt="logo"
+                />
+            </Link> */}ProfilePhoto
               <Link href="/create-post">Post</Link>
               </>
             ) : (
