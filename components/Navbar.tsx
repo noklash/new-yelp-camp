@@ -3,6 +3,7 @@ import Link from "next/link"
 import AuthProviders from "./AuthProviders"
 
 import { getCurrentUser } from "@/lib/session"
+// import { signOut } from "next-auth/react"
 
 const Navbar = async () => {
   const session = await getCurrentUser()
@@ -20,15 +21,19 @@ const Navbar = async () => {
 
             {session?.user ? (
               <>
-              {/* <Link href="#" className="rounded-full">
-                <Image
-                    src={session.user.image}
-                    width={150}
-                    height={80}
-                    alt="logo"
-                />
-            </Link> */}ProfilePhoto
               <Link href="/create-post">Post</Link>
+              
+              <Link href="#" className=" p-x">
+                <Image
+                    src={session.user?.image}
+                    width={70}
+                    height={50}
+                    alt="logo"
+                    className="rounded-full "
+
+                />
+            </Link>
+              {/* <Link href="/create-post">Post</Link> */}
               </>
             ) : (
               <AuthProviders />
