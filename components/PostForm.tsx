@@ -24,7 +24,7 @@ const PostForm = ({ type, session, post}: Props) => {
         description: post?.description || "",
         image: post?.image || "",
         website: post?.website || "",
-        price: post?.price || "",
+        price: post?.price || 0,
         country: post?.country || ""
     })
 

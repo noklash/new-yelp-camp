@@ -1,8 +1,20 @@
-import React from 'react'
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/session";
+import Modal from "@/components/Modal";
+import PostForm from "@/components/PostForm";
 
-const CreatePost = () => {
+
+
+const CreatePost = async () => {
+  const session = await getCurrentUser();
+
+  if (!session?.user) redirect("/")
   return (
-    <div>CreatePost</div>
+    <Modal>
+      <h3 className="modal-head-text">Create Post</h3>
+
+      <PostForm type="create" session={session} />
+    </Modal>
   )
 }
 
