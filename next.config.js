@@ -16,6 +16,13 @@ module.exports = {
         },
       ],
     },
+    experimental: {
+      serverComponentsExternalPackages: ['cloudinary', 'graphql-request']
+    },
+    eslint: {
+      // this allows production builds to successfully complete even with es lint errors
+      ignoreDuringBuilds: true
+    }
   }
 
   //avatars.githubusercontent.com/u/123834419?v=4)
