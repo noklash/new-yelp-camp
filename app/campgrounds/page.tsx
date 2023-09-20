@@ -2,69 +2,70 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 
-export const  camps = [
-  {   "id": "1",
-      "name":"Mount Ulap",
-      "description":"one of the most famous hikes in lorem ipsum delectant bonjour",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/MountUlap.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/MountUlap.png"
-  },
+import { PostInterface } from "@/common.types"
+import PostCard from "@/components/PostCard"
+// import LoadMore from "@/components/LoadMore";
+import { fetchAllPosts } from "@/lib/actions"
 
-  {   "id":"2",
-      "name":"Calagaus Islands",
-      "description":"A paradise of islands that can lorem ipsum deletcta nyen through mansts",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/CalaguasIsland.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/CalagusIslands.jpg"
-  },
+type SearchParams = {
+  endcursor?: string | null
+}
 
-  {   "id":"3",
-      "name":"Onay Beach",
-      "description":"This is one of the best beach camping grounds. Lorem ipsum delectant",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/OnayBeach.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/OnayBeach.jpg"
-  },
+type Props = {
+  searchParams: SearchParams
+}
 
-  {   "id":"4",
-      "name":"Seven Sisters Waterfall",
-      "description":"The seven sisters lorem ipsum delectantes oremus mesam que quod qui pro",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/SevenSistersWaterfall.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/SevenSistersWaterfall.jpg"
-  },
+type PostSearch = {
+  postSearch: {
+    edges: { node: PostInterface } [];
+    pageInfo: {
+      hasPreviousPage: boolean;
+      hasNextPage: boolean;
+      startCursor: string;
+      endCursor: string;
 
-  {   "id":"5",
-      "name":"Latik Riverside",
-      "description":"Lorem ipsum delectum Latik Riverside many critas ubi semper vobiscum nunc",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/LatikRiverside.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/LatikRiverside.jpg"
-  },
-
-  {   "id":"6",
-      "name":"Buloy Springs",
-      "description":"Lorem ipsum delectants Buloy Springs isone of the most amazing places to be.",
-      "compressedImage":"/Assets/Camp Images/Compressed Images/BuloySprings.jpg",
-      "fullImage":"/Assets/Camp Images/High Quality Images/BuloySprings.jpg"
+    };
   }
-]
+}
 
-const campgrounds = () => {
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 0;
+
+
+
+
+const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
+  const data = await fetchAllPosts(endcursor) as PostSearch
+
+  const postsToDisplay = data?.postSearch?.edges || []
+
+  if (postsToDisplay.length === 0){
+    return (
+      <section className='flexStart flex-col paddings'>
+        <p className='no-result-text text-center'>No posts found go create some</p>
+      </section>
+    )
+  }
+
   return (
-    <div className='flex'>
-      {camps.map((camp) => {
-        return (
-          <div className='m-1'>
-            <Link href={`/campgrounds/${camp.id}`}>
-              <Image
-                alt={camp.name}
-                width={300}
-                height={250}
-                src={camp.compressedImage}
-              />
-            </Link>
-          </div>
-        )
-      })}
-    </div>
+    <section className='projects-grid'>
+      {postsToDisplay.map(({ node }: { node: PostInterface}) => (
+        <PostCard
+          key={`${node.id}`}
+          id={node?.id}
+          image={node?.image}
+          title={node?.title}
+          name={node?.createdBy.name}
+          avatarUrl={node?.createdBy.avatarUrl}
+          userId={node?.createdBy.id}
+        />
+      ))}
+
+    </section>
+
   )
+  
 }
 
 export default campgrounds
