@@ -1,61 +1,47 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-// import camps from '../page'
+import Image from "next/image";
+import Link from "next/link";
 
-export const  camps = [
-    {   "id": "1",
-        "name":"Mount Ulap",
-        "description":"one of the most famous hikes in lorem ipsum delectant bonjour",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/MountUlap.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/MountUlap.png"
-    },
-  
-    {   "id":"2",
-        "name":"Calagaus Islands",
-        "description":"A paradise of islands that can lorem ipsum deletcta nyen through mansts",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/CalaguasIsland.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/CalagusIslands.jpg"
-    },
-  
-    {   "id":"3",
-        "name":"Onay Beach",
-        "description":"This is one of the best beach camping grounds. Lorem ipsum delectant",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/OnayBeach.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/OnayBeach.jpg"
-    },
-  
-    {   "id":"4",
-        "name":"Seven Sisters Waterfall",
-        "description":"The seven sisters lorem ipsum delectantes oremus mesam que quod qui pro",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/SevenSistersWaterfall.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/SevenSistersWaterfall.jpg"
-    },
-  
-    {   "id":"5",
-        "name":"Latik Riverside",
-        "description":"Lorem ipsum delectum Latik Riverside many critas ubi semper vobiscum nunc",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/LatikRiverside.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/LatikRiverside.jpg"
-    },
-  
-    {   "id":"6",
-        "name":"Buloy Springs",
-        "description":"Lorem ipsum delectants Buloy Springs isone of the most amazing places to be.",
-        "compressedImage":"/Assets/Camp Images/Compressed Images/BuloySprings.jpg",
-        "fullImage":"/Assets/Camp Images/High Quality Images/BuloySprings.jpg"
-    }
-  ]
+import { getCurrentUser } from "@/lib/session";
+import Modal from "@/components/Modal";
+import { getPostDetails } from "@/lib/actions";
+import { PostInterface } from "@/common.types";
 
-const camp = ( {params: { id} } : { params: {id: string} }) => {
-    const selected = camps.filter( (camp)=> camp.id === id )
-   
-   
-  return (
-    <div>
-        <h1>{selected[0].name}</h1>
+const Post = async ({ params: { id } }: { params: { id: string } }) => {
+    const session = await getCurrentUser()
+    const result = await getPostDetails(id) as { post?: PostInterface }
 
-    </div>
-  )
+    if (!result?.post) return (
+        <p className="no-result-text">Failed to fetch post info</p>
+    )
+
+    const postDetails = result?.post
+
+    const renderLink = () => `/profile/${postDetails?.createdBy?.id}`
+
+    return (
+        <Modal>
+            <section className="flexBetween gap-y-8 max-w-4xl max-xs:flex-col w-full">
+                <div className="flex-1 flex items-start gap-5 w-full max-xs:flex-col">
+                    <Link href={renderLink()}>
+                        <Image
+                            src={postDetails?.createdBy?.avatarUrl}
+                            width={50}
+                            height={50}
+                            alt="profile"
+                            className="rounded-full"
+                        />
+                    </Link>
+
+                    <div className="flex-1 flexStart flex-col gap-1">
+                        <p className="self-start text-lg font-semibold">
+                            {postDetails?.title}
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+        </Modal>
+
+    )
 }
 
-export default camp

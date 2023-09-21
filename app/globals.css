@@ -119,6 +119,11 @@ body {
   .form_field-input {
     @apply w-full outline-0 bg-light-white-100 rounded-xl p-4;
   }
+  /* Navbar */
+  .navbar {
+    @apply py-5 px-8 border-b border-nav-border gap-4;
+  }
+  
 }
 
 
@@ -131,15 +136,14 @@ body {
   @apply flex justify-start items-center flex-col absolute h-[95%] w-full bottom-0 bg-white rounded-t-3xl lg:px-40 px-8 pt-14 pb-72 overflow-auto;
 }
 
-/* Navbar */
-/* .navbar {
-  @apply py-5 px-8 border-b border-nav-border gap-4;
-} */
 
-/* Profile Menu */
-/* .profile_menu-items {
-  @apply flex-col absolute right-1/2 translate-x-1/2 mt-3 p-7 sm:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu;
-} */
+
+@layer base{
+  /* Profile Menu */
+  /* .profile_menu-items {
+    @apply flex-col absolute right-1/2 translate-x-1/2 mt-3 p-7 sm:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu;
+  } */
+}
 
 /* Profile Card */
 .profile_card-title {
