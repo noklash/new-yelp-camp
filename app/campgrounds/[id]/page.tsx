@@ -36,8 +36,40 @@ const Post = async ({ params: { id } }: { params: { id: string } }) => {
                         <p className="self-start text-lg font-semibold">
                             {postDetails?.title}
                         </p>
-                        
+
+                        <div className="user-info">
+                            <Link href={renderLink()}>
+                                {postDetails?.createdBy?.name}
+                            </Link>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            {session?.user.email === postDetails?.createdBy?.email && (
+                <div className="flex justify-end items-center gap-2">
+                    {/* <PostActions postId={postDetails?.id}/> */}
+                </div>
+            )}
+
+            <section className="mt-14">
+                <Image
+                    src={`${postDetails?.image}`}
+                    className="object-cover rounded-2xl"
+                    width={1064}
+                    height={798}
+                    alt="poster"
+                />
+            </section>
+            <section className="flexCenter flex-col mt-20">
+                <p className="max-w-5xl text-xl font-normal">
+                    {postDetails?.description}
+                </p>
+
+                <div className="flex flex-wrap mt-5 gap-5">
+                            <Link href={postDetails?.website} target="_blank" rel="noreferrer" className="flexCenter gap-2 text-sm font-medium text-primary-purple">
+                                <span className="underline">Website</span>
+                            </Link>
                 </div>
             </section>
         </Modal>
