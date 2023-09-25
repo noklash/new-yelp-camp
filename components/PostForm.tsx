@@ -66,12 +66,12 @@ const PostForm = ({ type, session, post}: Props) => {
             if (type === "create") {
                 await createNewPost(form, session?.user?.id, token)
 
-                router.push("/")
+                router.push("/campgrounds")
             }
             if (type === "edit") {
                 await updatePost(form, post?.id as string, token)
 
-                router.push("/")
+                router.push("/campgrounds")
             }
         } catch (error) {
             alert(`failed to ${type === "create" ? "create" : "edit"} a post. Try again!`);
@@ -114,9 +114,9 @@ const PostForm = ({ type, session, post}: Props) => {
                 />
 
                 <FormField
-                    title="Title"
+                    title="Description"
                     state={form.description}
-                    placeholder="shoecase amazing camp locations "
+                    placeholder="showcase amazing camp locations "
                     isTextArea
                     setState={(value) => handleStateChange("description", value)}
                 />
@@ -128,17 +128,17 @@ const PostForm = ({ type, session, post}: Props) => {
                     setState={(value) => handleStateChange("website", value)}
                 />
 
-                <FormField
+                {/* <FormField
                     title="price"
                     state={form.price}
                     placeholder="$120"
                     setState={(value) => handleStateChange("price", value)}
-                />
+                /> */}
 
                 <FormField
-                    title="Title"
+                    title="Country"
                     state={form.country}
-                    placeholder="YELP CAMP "
+                    placeholder="Nigeria"
                     setState={(value) => handleStateChange("country", value)}
                 />
 

@@ -31,8 +31,8 @@ export interface UserProfile {
     email: string;
     description: string | null;
     avatarUrl: string;
-    facebook: string | null;
-    linkedinUrl: string | null;
+    // facebook: string | null;
+    // linkedinUrl: string | null;
     posts: {
       edges: { node: PostInterface }[];
       pageInfo: {
