@@ -16,9 +16,9 @@ module.exports = {
         },
       ],
     },
-    experimental: {
-      serverComponentsExternalPackages: ['cloudinary', 'graphql-request']
-    },
+    // experimental: {
+    //   serverComponentsExternalPackages: ['cloudinary', 'graphql-request']
+    // },
     eslint: {
       // this allows production builds to successfully complete even with es lint errors
       ignoreDuringBuilds: true

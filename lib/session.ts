@@ -13,10 +13,10 @@ import { SessionInterface, UserProfile } from "@/common.types";
 
 export const authOptions: NextAuthOptions = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-        }),
+        // GoogleProvider({
+        //     clientId: process.env.GOOGLE_CLIENT_ID!,
+        //     clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+        // }),
 
         GithubProvider({
             clientId: process.env.GITHUB_CLIENT_ID!,
@@ -49,6 +49,7 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async session({ session }) {
             const email = session?.user?.email as string;
+
 
             try {
                 const data = await getUser(email) as { user?: UserProfile }

@@ -7,7 +7,7 @@ const Home = () => {
     <div className="lg:flex overflow-hidden">
           <div className="lg:w-1/2">
 
-          <div className="w-full m-4 ">
+          {/* <div className="w-full m-4 ">
               <Link href="/">
                   <Image
                       src="/logo.svg"
@@ -16,7 +16,7 @@ const Home = () => {
                       alt="logo"
                   />
               </Link>
-          </div>
+          </div> */}
 
           
 

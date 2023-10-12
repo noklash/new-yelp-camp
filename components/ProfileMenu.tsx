@@ -13,8 +13,9 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
 
     return (
         <div className="flexCenter z-10 flex-col relative">
-            <Menu as="div">
-                <Menu.Button className="flexCenter" onMouseEnter={() => setOpenModal(true)}>
+            {/* <Menu as="div"> */}
+            <div>
+                <div className="flexCenter" onMouseEnter={() => setOpenModal(true)}>
                     {session?.user?.image && (
                         <Image
                             src={session.user.image}
@@ -25,58 +26,49 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
                         />
 
                     )}
-                </Menu.Button>
+                </div>
 
-                <Transition
-                    show={openModal}
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                >
-                    <Menu.Items
-                        static
-                        className="flexStart profile_menu-items"
+                { openModal &&
+                    <div
+                        className="flexStart profile_menu-items mt-0 absolute overlay px-4  bg-white shadow shadow-black flex flex-col rounded"
                         onMouseLeave={() => setOpenModal(false)}
                     >
-                        <div className="flex flex-col items-center gap-y-4">
+                        <div className="flex items-center gap-x-4">
                             {session?.user?.image && (
                                 <Image
                                     src={session?.user?.image}
-                                    className="rounded-full"
-                                    width={80}
-                                    height={80}
+                                    className="rounded-full pt-2"
+                                    width={60}
+                                    height={60}
                                     alt="profile Image"
                                 />
                             )}
                             <p className="font-semibold">{session?.user?.name}</p>
                         </div>
 
-                        <div className="flex flex-col gap-3 pt-10 items-start w-full">
-                            <Menu.Item>
+                        <div className="flex flex-col gap-2 pt-2 items-start w-full">
+                            <div>
                                 <Link href={`/profile/${session?.user?.id}`} className="text-sm">Preferences</Link>
-                            </Menu.Item>
-                            <Menu.Item>
+                            </div>
+                            <div>
                                 <Link href={`/profile/${session?.user?.id}`} className="text-sm">Settings</Link>
-                            </Menu.Item>
-                            <Menu.Item>
+                            </div>
+                            <div>
                                 <Link href={`/profile/${session?.user?.id}`} className="text-sm">Profile</Link>
-                            </Menu.Item>
+                            </div>
                         </div>
                         <div className="w-full flexStart border-t border-nav-border mt-5 pt-5">
-                            <Menu.Item>
-                                <button type="button" className="text-sm" onClick={() => signOut()}>
+                            <div>
+                                <button type="button" className="text-sm pb-4" onClick={() => signOut()}>
                                     Sign out
                                 </button>
-                            </Menu.Item>
+                            </div>
                         </div>
-                    </Menu.Items>
-
-                </Transition>
-            </Menu>
+                    </div>
+                    }
+                {/* </Transition> */}
+            {/* </Menu> */}
+            </div>
         </div>
     )
 }

@@ -7,8 +7,8 @@ const User = g.model('User', {
   email: g.string().unique(),
   avatarUrl: g.url(),
   description: g.string().length({ min: 2, max: 1000 }).optional(),
-  facebook: g.url().optional(),
-  linkedinUrl: g.url().optional(), 
+  // facebook: g.url().optional(),
+  // linkedinUrl: g.url().optional(), 
   posts: g.relation(() => Post).list().optional(),
 }).auth((rules) => {
   rules.public().read()
