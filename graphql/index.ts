@@ -46,8 +46,6 @@ export const createUserMutation = `
 				email
 				avatarUrl
 				description
-				githubUrl
-				linkedinUrl
 				id
 			}
 		}
@@ -112,8 +110,6 @@ export const getUserQuery = `
       email
       avatarUrl
       description
-      facebookUrl
-      linkedinUrl
     }
   }
 `;
@@ -126,8 +122,6 @@ export const getPostsOfUserQuery = `
       email
       description
       avatarUrl
-      facebookUrl
-      linkedinUrl
       posts(last: $last) {
         edges {
           node {

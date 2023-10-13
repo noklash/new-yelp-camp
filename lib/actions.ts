@@ -52,6 +52,7 @@ export const fetchAllPosts = ( endcursor?: string | null) => {
 
 export const createNewPost = async (form: PostForm, creatorId: string, token: string) => {
   const imageUrl = await uploadImage(form.image);
+  // console.log("form image is: ", form.image )
 
   if (imageUrl.url) {
     client.setHeader("Authorization", `Bearer ${token}`);
