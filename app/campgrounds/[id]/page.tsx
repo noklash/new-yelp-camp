@@ -77,3 +77,4 @@ const Post = async ({ params: { id } }: { params: { id: string } }) => {
     )
 }
 
+export default Post
