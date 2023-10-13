@@ -69,22 +69,22 @@ export const authOptions: NextAuthOptions = {
             }
         },
         // from here
-        async signIn({ user}: {
-            user: AdapterUser | User
-        }) {
-            try {
-                const userExists = await getUser(user?.email as string) as { user?: UserProfile }
+        // async signIn({ user}: {
+        //     user: AdapterUser | User
+        // }) {
+        //     try {
+        //         const userExists = await getUser(user?.email as string) as { user?: UserProfile }
 
-                if (!userExists.user){
-                    await createUser(user.name as string, user.email as string, user.image as string)
-                }
+        //         if (!userExists.user){
+        //             await createUser(user.name as string, user.email as string, user.image as string)
+        //         }
 
-                return true;            
-            }  catch (error: any){
-                console.log("Error checking if user exists: ", error.message);
-                return false;
-            }
-        }
+        //         return true;            
+        //     }  catch (error: any){
+        //         console.log("Error checking if user exists: ", error.message);
+        //         return false;
+        //     }
+        // }
         // here
     }
 }
