@@ -36,7 +36,7 @@ const Home = () => {
                     <p className="description font-2xl lg:text-2xl py-2">YelpCamp is a curated list of the best camping spots on Earth. Unfiltered and unbiased reviews.</p>
                     <div className="flex py-3">
                         <Image
-                          src="/CheckMark.svg"
+                          src="/Checkmark.svg"
                           alt="checkmark"
                           width={30}
                           height={30}
@@ -45,7 +45,7 @@ const Home = () => {
                     </div> 
                     <div className="flex py-3">
                     <Image
-                          src="/CheckMark.svg"
+                          src="/Checkmark.svg"
                           alt="checkmark"
                           width={30}
                           height={30}
@@ -54,7 +54,7 @@ const Home = () => {
                     </div>
                     <div className="flex pt-3 pb-6">
                     <Image
-                          src="/CheckMark.svg"
+                          src="/Checkmark.svg"
                           alt="checkmark"
                           width={30}
                           height={30}
