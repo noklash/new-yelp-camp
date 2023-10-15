@@ -3,13 +3,14 @@ import { GraphQLClient } from "graphql-request";
 import { createPostMutation, createUserMutation, deletePostMutation, updatePostMutation, getPostByIdQuery, getPostsOfUserQuery, getUserQuery, postsQuery } from "@/graphql";
 import { PostForm } from "@/common.types";
 
-const isProduction = process.env.NODE_ENV === 'production';
-const apiUrl = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || '': 'http://127.0.0.1:4000/graphql';
+// const isProduction = process.env.NODE_ENV === 'production';
+// const apiUrl = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || '': 'http://127.0.0.1:4000/graphql';
 // test
-// const apiUrl =  process.env.NEXT_PUBLIC_GRAFBASE_API_URL
-// const apiKey =  process.env.NEXT_PUBLIC_GRAFBASE_API_KEY
-const apiKey = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || '' : 'letmein';
-const serverUrl = isProduction ? process.env.NEXT_PUBLIC_SERVER_URL : 'http://localhost:3000';
+const apiUrl =  process.env.NEXT_PUBLIC_GRAFBASE_API_URL
+const apiKey =  process.env.NEXT_PUBLIC_GRAFBASE_API_KEY
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
+// const apiKey = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || '' : 'letmein';
+// const serverUrl = isProduction ? process.env.NEXT_PUBLIC_SERVER_URL : 'http://localhost:3000';
 
 const client = new GraphQLClient(apiUrl);
 
