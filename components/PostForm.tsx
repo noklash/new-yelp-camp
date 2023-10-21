@@ -128,12 +128,12 @@ const PostForm = ({ type, session, post}: Props) => {
                     setState={(value) => handleStateChange("website", value)}
                 />
 
-                {/* <FormField
+                <FormField
                     title="price"
                     state={form.price}
                     placeholder="$120"
                     setState={(value) => handleStateChange("price", value)}
-                /> */}
+                />
 
                 <FormField
                     title="Country"
