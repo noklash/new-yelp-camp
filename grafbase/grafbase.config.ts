@@ -19,9 +19,9 @@ const Post = g.model('Post', {
   title: g.string().length({ min: 3 }),
   description: g.string(), 
   image: g.url(),
-  website: g.url().unique(), 
+  website: g.url(), 
   price: g.string(), 
-  country: g.string().search(),
+  country: g.string(),
   createdBy: g.relation(() => User),
 }).auth((rules) => {
   rules.public().read()
