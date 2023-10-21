@@ -1,7 +1,7 @@
 type Props = {
     type?: string;
     title: string;
-    state: string | number;
+    state: string;
     placeholder: string;
     isTextArea?: boolean;
     setState: (value: string) => void;

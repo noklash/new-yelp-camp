@@ -4,7 +4,7 @@ export type FormState = {
     title: string;
     description: string;
     image: string;
-    price: number;
+    price: string;
     website: string;
     country: string;
 };
@@ -13,7 +13,7 @@ export interface PostInterface {
     title: string;
     description: string;
     image: string;
-    price: number;
+    price: string;
     website: string;
     country: string;
     id: string;
@@ -57,7 +57,7 @@ export interface PostForm {
   title: string;
   description: string;
   image: string;
-  price: number;
+  price: string;
   website: string;
   country: string;
 }

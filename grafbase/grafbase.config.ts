@@ -20,7 +20,7 @@ const Post = g.model('Post', {
   description: g.string(), 
   image: g.url(),
   website: g.url(), 
-  price: g.int(), 
+  price: g.string(), 
   country: g.string(),
   createdBy: g.relation(() => User),
 }).auth((rules) => {
