@@ -28,6 +28,8 @@ type PostSearch = {
   }
 }
 
+
+
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export const revalidate = 0;
@@ -39,20 +41,20 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   const data = await fetchAllPosts(endcursor) as PostSearch
   console.log(`data is: ${data}`)
 
-  // const postsToDisplay = data?.postSearch?.edges || []
-  // console.log(postsToDisplay)
+  const postsToDisplay = data?.postSearch?.edges || []
+  console.log(postsToDisplay)
 
-  // if (postsToDisplay.length === 0){
-  //   return (
-  //     <section className='flexStart flex-col paddings'>
-  //       <p className='no-result-text text-center'>No posts found go create some</p>
-  //     </section>
-  //   )
-  // }
+  if (postsToDisplay.length === 0){
+    return (
+      <section className='flexStart flex-col paddings'>
+        <p className='no-result-text text-center'>No posts found go create some</p>
+      </section>
+    )
+  }
 
   return (
     <section className='projects-grid'> posts
-      {/* {postsToDisplay.map(({ node }: { node: PostInterface}) => (
+      {postsToDisplay.map(({ node }: { node: PostInterface}) => (
         <PostCard
           key={`${node.id}`}
           id={node?.id}
@@ -62,7 +64,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
           avatarUrl={node?.createdBy.avatarUrl}
           userId={node?.createdBy.id}
         />
-      ))} */}
+      ))}
 
     </section>
 

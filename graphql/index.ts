@@ -82,6 +82,36 @@ export const postsQuery = `
   }
 `;
 
+export const postsQueryAll = `
+query getPosts($endcursor: String){
+postSearch(first: 8, after: $endcursor) {
+  pageInfo {
+    hasNextPage
+    hasPreviousPage
+    startCursor
+    endCursor
+  }
+  edges {
+    node {
+      title
+      price
+      description
+      website
+      id
+      image
+      country
+      createdBy {
+        id
+        email
+        name
+        avatarUrl
+      }
+    }
+  }
+}
+}
+`;
+
 export const getAllPostsQuery = `
   query getAllPosts( $endcursor: String) {
     postCollection(first: 8 ) {
