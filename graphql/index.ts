@@ -53,7 +53,7 @@ export const createUserMutation = `
 `;
 
 export const postsQuery = `
-  query getPosts( $endcursor: String) {
+  query getAllPosts( $endcursor: String) {
     postSearch(first: 8, after: $endcursor) {
       pageInfo {
         hasNextPage
@@ -85,12 +85,6 @@ export const postsQuery = `
 export const postsQueryAll = `
 query getPosts($endcursor: String){
 postSearch(first: 8, after: $endcursor) {
-  pageInfo {
-    hasNextPage
-    hasPreviousPage
-    startCursor
-    endCursor
-  }
   edges {
     node {
       title
