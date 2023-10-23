@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
-import { createPostMutation, createUserMutation, deletePostMutation, updatePostMutation, getPostByIdQuery, getPostsOfUserQuery, getUserQuery, postsQuery } from "@/graphql";
+import { createPostMutation, createUserMutation, deletePostMutation, updatePostMutation, getPostByIdQuery, getPostsOfUserQuery, getUserQuery, postsQuery, getAllPostsQuery } from "@/graphql";
 import { PostForm } from "@/common.types";
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -48,7 +48,7 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 export const fetchAllPosts = ( endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(postsQuery, {  endcursor });
+  return makeGraphQLRequest(getAllPostsQuery, {  endcursor });
 };
 
 export const createNewPost = async (form: PostForm, creatorId: string, token: string) => {

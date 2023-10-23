@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { PostInterface } from "@/common.types"
 import PostCard from "@/components/PostCard"
 // import LoadMore from "@/components/LoadMore";
-import { fetchAllPosts } from "@/lib/actions"
+import { fetchAllPosts } from "@/lib/actions";
 
 type SearchParams = {
   endcursor?: string | null
@@ -17,7 +17,7 @@ type Props = {
 
 type PostSearch = {
   postSearch: {
-    edges: { node: PostInterface } [];
+    edges: { node: PostInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
       hasNextPage: boolean;
@@ -37,20 +37,22 @@ export const revalidate = 0;
 
 const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   const data = await fetchAllPosts(endcursor) as PostSearch
+  console.log(`data is: ${data}`)
 
-  const postsToDisplay = data?.postSearch?.edges || []
+  // const postsToDisplay = data?.postSearch?.edges || []
+  // console.log(postsToDisplay)
 
-  if (postsToDisplay.length === 0){
-    return (
-      <section className='flexStart flex-col paddings'>
-        <p className='no-result-text text-center'>No posts found go create some</p>
-      </section>
-    )
-  }
+  // if (postsToDisplay.length === 0){
+  //   return (
+  //     <section className='flexStart flex-col paddings'>
+  //       <p className='no-result-text text-center'>No posts found go create some</p>
+  //     </section>
+  //   )
+  // }
 
   return (
-    <section className='projects-grid'>
-      {postsToDisplay.map(({ node }: { node: PostInterface}) => (
+    <section className='projects-grid'> posts
+      {/* {postsToDisplay.map(({ node }: { node: PostInterface}) => (
         <PostCard
           key={`${node.id}`}
           id={node?.id}
@@ -60,7 +62,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
           avatarUrl={node?.createdBy.avatarUrl}
           userId={node?.createdBy.id}
         />
-      ))}
+      ))} */}
 
     </section>
 
