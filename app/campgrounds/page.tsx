@@ -1,6 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link';
+// import Image from 'next/image'
+// import Link from 'next/link';
 
 import { PostInterface } from "@/common.types"
 import PostCard from "@/components/PostCard"
