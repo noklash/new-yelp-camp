@@ -48,7 +48,7 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 export const fetchAllPosts = (  endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
     // const validCategory = category ?? '';
-  return makeGraphQLRequest(postsQueryAll, {  endcursor });
+  return makeGraphQLRequest(getAllPostsQuery, {  endcursor });
 };
 
 export const createNewPost = async (form: PostForm, creatorId: string, token: string) => {
