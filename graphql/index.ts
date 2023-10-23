@@ -52,6 +52,36 @@ export const createUserMutation = `
 	}
 `;
 
+const postSearchFields = `
+query postSearch( $endcursor: String) {
+  postSearch(first: 8, after: $endcursor) {
+  pageInfo {
+    hasNextPage
+    hasPreviousPage
+    startCursor
+    endCursor
+  }
+  edges {
+    node {
+      title
+      price
+      description
+      website
+      id
+      image
+      country
+      createdBy {
+        id
+        email
+        name
+        avatarUrl
+      }
+    }
+  }
+}
+}
+`
+
 export const postsQuery = `
   query getAllPosts( $endcursor: String) {
     postSearch(first: 8, after: $endcursor) {
@@ -84,7 +114,13 @@ export const postsQuery = `
 
 export const postsQueryAll = `
 query getPosts($endcursor: String){
-postSearch(first: 8, after: $endcursor) {
+  postSearch(first: 8, after: $endcursor) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
   edges {
     node {
       title
