@@ -52,58 +52,47 @@ export const createUserMutation = `
 	}
 `;
 
-const postSearchFields = `
-type Query {
-  postSearch(first: Int, after: String): PostConnection
+const postSearchFields = 
+
+
+`
+query postSearch( $endcursor: String){
+  postSearch(first: 2, after: $endcursor) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        title
+        price
+        description
+        website
+        id
+        image
+        country
+        createdBy {
+          id
+          email
+          name
+          avatarUrl
+        }
+      }
+    }
+  }
 }
 
-type PostConnection {
-  pageInfo: PageInfo
-  edges: [PostEdge]
-}
-
-type PageInfo {
-  hasNextPage: Boolean
-  hasPreviousPage: Boolean
-  startCursor: String
-  endCursor: String
-}
-
-type PostEdge {
-  node: Post
-}
-
-type Post {
-  title: String
-  price: Float
-  description: String
-  website: String
-  id: ID
-  image: String
-  country: String
-  createdBy: User
-}
-
-type User {
-  id: ID
-  email: String
-  name: String
-  avatarUrl: String
-}
 
 `
 
-export const postsQuery = `
-  query getAllPosts( $endcursor: String) {
-    ${postSearchFields}
-  }
-`;
+export const postsQuery = postSearchFields
+  
+   
 
-export const postsQueryAll = `
-query getPosts($endcursor: String){
-  ${postSearchFields}
-}
-`;
+export const postsQueryAll = postSearchFields
+
 
 export const getAllPostsQuery = `
   query getAllPosts( $endcursor: String) {
