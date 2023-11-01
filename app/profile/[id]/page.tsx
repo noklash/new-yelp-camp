@@ -1,8 +1,21 @@
-import React from 'react'
+import { getUserPosts } from "@/lib/actions"
+import { UserProfile } from "@/common.types"
 
-const Profile = () => {
+type Props = {
+  params: {
+    id: string,
+  }
+}
+
+const Profile = async ({ params }: Props) => {
+  const result = await getUserPosts(params.id, 100) 
   return (
-    <div className=''>Profile</div>
+    <div className=''>
+      {
+        result?.posts?.edges?.map(
+        )
+      }
+    </div>
   )
 }
 

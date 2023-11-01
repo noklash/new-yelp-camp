@@ -93,32 +93,33 @@ export const postsQueryAll = postSearchFields
 
 
 export const getAllPostsQuery = `
-  query getAllPosts( $endcursor: String) {
-    postCollection(first: 8 , after: $endcursor) {
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-      edges {
-        node {
-          title
-          price
-          description
-          website
+query getAllPosts( $endcursor: String) {
+  postCollection(first: 8, after: $endcursor) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        title
+        price
+        description
+        website
+        image
+        country
+        createdBy {
           id
-          image
-          country
-          createdBy {
-            id
-            email
-            name
-            avatarUrl
-          }
+          email
+          name
+          avatarUrl
         }
       }
+    }
   }
+}
 `;
 
 export const getPostByIdQuery = `
@@ -152,6 +153,8 @@ export const getUserQuery = `
     }
   }
 `;
+
+// user_01HCJS5C2Z4X48W4FDV0Z1ZRFD
       
 export const getPostsOfUserQuery = `
   query getUserPosts($id: ID!, $last: Int = 4) {

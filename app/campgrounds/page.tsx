@@ -5,7 +5,7 @@ import React from 'react'
 import { PostInterface } from "@/common.types"
 import PostCard from "@/components/PostCard"
 // import LoadMore from "@/components/LoadMore";
-import { fetchAllPosts } from "@/lib/actions";
+import { fetchAllPosts, getUserPosts } from "@/lib/actions";
 
 type SearchParams = {
   endcursor?: string | null
@@ -39,6 +39,7 @@ export const revalidate = 0;
 
 const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   const data = await fetchAllPosts(endcursor) as PostSearch
+  // const data = await getUserPosts(id)
   console.log(`data is: ${data}`)
 
   const postsToDisplay = data?.postSearch?.edges || []
