@@ -93,7 +93,7 @@ export const postsQueryAll = postSearchFields
 
 
 export const getAllPostsQuery = `
-query getAllPosts( $endcursor: String) {
+query getAllPosts($endcursor: String) {
   postCollection(first: 8, after: $endcursor) {
     pageInfo {
       hasNextPage
@@ -105,7 +105,6 @@ query getAllPosts( $endcursor: String) {
       node {
         id
         title
-        price
         description
         website
         image

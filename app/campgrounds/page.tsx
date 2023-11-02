@@ -16,7 +16,7 @@ type Props = {
 }
 
 type PostSearch = {
-  postSearch: {
+  postCollection: {
     edges: { node: PostInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
@@ -42,7 +42,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   // const data = await getUserPosts(id)
   console.log(`data is: ${data}`)
 
-  const postsToDisplay = data?.postSearch?.edges || []
+  const postsToDisplay = data?.postCollection?.edges || []
   console.log(postsToDisplay)
 
   if (postsToDisplay.length === 0){

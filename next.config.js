@@ -14,6 +14,12 @@ module.exports = {
           port: '',
           pathname: '/a/**',
         },
+        {
+          protocol: 'http',
+          hostname:  "res.cloudinary.com",
+          port: '',
+          pathname: '/dvu3ndpwz/**',
+        },
       ],
     },
     // experimental: {
