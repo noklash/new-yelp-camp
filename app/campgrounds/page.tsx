@@ -54,7 +54,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   }
 
   return (
-    <section className='projects-grid'> posts
+    <section className='projects-grid'> 
       {postsToDisplay.map(({ node }: { node: PostInterface}) => (
         <PostCard
           key={`${node.id}`}

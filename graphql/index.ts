@@ -129,7 +129,6 @@ export const getPostByIdQuery = `
       description
       image
       website
-      price
       country
       createdBy {
         id

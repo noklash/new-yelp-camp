@@ -15,7 +15,7 @@ type Props = {
 const PostCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
   return (
     <div className="flexCenter flex-col rounded-2xl drop-shadow-card text-black">
-        <Link href={`/project/${id}`} className="flexCenter group relative w-full h-full">
+        <Link href={`/campgrounds/${id}`} className="flexCenter group relative w-full h-full">
             <Image
                 src={image}
                 width={414}
