@@ -1,5 +1,6 @@
 import { getUserPosts } from "@/lib/actions"
 import { UserProfile } from "@/common.types"
+import ProfilePage from "@/components/ProfilePage"
 
 type Props = {
   params: {
@@ -8,14 +9,13 @@ type Props = {
 }
 
 const Profile = async ({ params }: Props) => {
-  const result = await getUserPosts(params.id, 100) 
+  const result = await getUserPosts(params.id, 100) as { user: UserProfile }
+
+  if(!result?.user){
+    return <p className="no-result-text">Failed to fetch user info</p>
+  }
   return (
-    <div className=''>
-      {
-        result?.posts?.edges?.map(
-        )
-      }
-    </div>
+    <ProfilePage user={result?.user} />
   )
 }
 
