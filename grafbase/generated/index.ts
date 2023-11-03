@@ -23,6 +23,7 @@ export type Schema = {
     __typename?: 'Post';
     title: string;
     description: string;
+    website: string;
     country: string;
     createdBy?: Schema['User'];
   };
