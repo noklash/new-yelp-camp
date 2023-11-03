@@ -13,8 +13,8 @@ const Navbar = async () => {
         <div className="w-full flex">
             <Link href="/" className="mr-auto">
                 <Image
-                    src="/Logo.svg"
-                    width={150}
+                    src="/discoveryy.svg"
+                    width={170}
                     height={80}
                     alt="logo"
                 />

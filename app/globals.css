@@ -177,3 +177,10 @@ body {
   margin-left: -8rem;
   /* margin-right: 9rem; */
 }
+.mobile{
+  background-image: url("/bgimg2.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.95;
+  height: 100vh;
+}

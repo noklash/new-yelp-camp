@@ -1,36 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 const Home = () => {
   // const screen = window.innerWidth
   return (
-    <div className="lg:flex overflow-hidden">
-          <div className="lg:w-1/2">
+    <div className="lg:flex overflow-hidden mobile pt-2">
 
-          {/* <div className="w-full m-4 ">
-              <Link href="/">
-                  <Image
-                      src="/logo.svg"
-                      width={150}
-                      height={80}
-                      alt="logo"
-                  />
-              </Link>
-          </div> */}
+      
+          <div className="">
+          {/* lg:w-1/2 */}
 
           
+               {/* <div className="w-full "> */}
+                  <Navbar/>
 
-          {/* { screen < 765 && <div> */}
-               <div className="w-full lg:hidden">
-                    <Image
+                    {/* <Image
                       className="w-full"
                       src="/HeroImageMobile.jpg"
                       width={400}
                       height={350}
                       // layout="responsive"
                       alt="hero image"
-                    />
-               </div>
+                    /> */}
+               {/* </div> */}
                <div className="p-7 lg:mt-12">
                     <h3 className="header font-bold text-2xl  lg:text-4xl capitalize">Explore the best camps on earth</h3>
                     <p className="description font-2xl lg:text-2xl py-2">YelpCamp is a curated list of the best camping spots on Earth. Unfiltered and unbiased reviews.</p>
@@ -95,8 +88,9 @@ const Home = () => {
 
           </div>
 {/* this is for the desktop view */}
-                <div className="w-1/2 hidden lg:flex overflow-hidden ">
-                    <Image
+                {/* <div className="w-1/2 hidden lg:flex overflow-hidden desktop"> */}
+                  
+                    {/* <Image
                       className="w-full"
                       src="/HeroImage.jpg"
                       width={400}
@@ -104,8 +98,8 @@ const Home = () => {
                       // layout="responsive"
                       alt="hero image"
                       // objectFit="cover"
-                    />
-                </div>
+                    /> */}
+                {/* </div> */}
     </div>
   )
 }
