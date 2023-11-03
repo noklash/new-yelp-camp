@@ -2,6 +2,7 @@
 
 import { getProviders, signIn } from 'next-auth/react';
 import React, { useEffect, useState } from 'react'
+import Link from "next/link"
 
 import Button from './Button';
 
@@ -33,9 +34,10 @@ const AuthProviders = () => {
     if (providers) {
         return (
             <div className=''>
-                {Object.values(providers).map((provider: Provider, i) => (
+                {/* {Object.values(providers).map((provider: Provider, i) => (
                     <Button key={i} title='Sign In' handleClick={() => signIn("github")} />
-                ))}
+                ))} */}
+                <Link href="/api/auth/signin" className="text-black mx-4 font-bold">Sign In</Link>
             </div>
         )
     }

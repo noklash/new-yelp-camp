@@ -13,7 +13,7 @@ const Home = () => {
 
           
                {/* <div className="w-full "> */}
-                  <Navbar/>
+                  {/* <Navbar/> */}
 
                     {/* <Image
                       className="w-full"
