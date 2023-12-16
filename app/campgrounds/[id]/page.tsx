@@ -66,11 +66,11 @@ const Post = async ({ params: { id } }: { params: { id: string } }) => {
                     {postDetails?.description}
                 </p>
 
-                <div className="flex flex-wrap mt-5 gap-5">
+                {/* <div className="flex flex-wrap mt-5 gap-5">
                             <Link href={postDetails?.website} target="_blank" rel="noreferrer" className="flexCenter gap-2 text-sm font-medium text-primary-purple">
                                 <span className="underline">Website</span>
                             </Link>
-                </div>
+                </div> */}
             </section>
         </Modal>
 

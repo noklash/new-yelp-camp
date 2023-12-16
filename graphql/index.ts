@@ -67,7 +67,6 @@ query postSearch( $endcursor: String){
         title
         price
         description
-        website
         id
         image
         country
@@ -94,7 +93,7 @@ export const postsQueryAll = postSearchFields
 
 export const getAllPostsQuery = `
 query getAllPosts($endcursor: String) {
-  postCollection(first: 8, after: $endcursor) {
+  postCollection(first: 100, after: $endcursor) {
     pageInfo {
       hasNextPage
       hasPreviousPage
@@ -106,7 +105,6 @@ query getAllPosts($endcursor: String) {
         id
         title
         description
-        website
         image
         country
         createdBy {
@@ -128,7 +126,6 @@ export const getPostByIdQuery = `
       title
       description
       image
-      website
       country
       createdBy {
         id

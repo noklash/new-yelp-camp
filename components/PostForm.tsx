@@ -23,7 +23,7 @@ const PostForm = ({ type, session, post}: Props) => {
         title: post?.title || "", 
         description: post?.description || "",
         image: post?.image || "",
-        website: post?.website || "",
+        // website: post?.website || "",
         // price: post?.price || "",
         country: post?.country || ""
     })
@@ -121,12 +121,12 @@ const PostForm = ({ type, session, post}: Props) => {
                     setState={(value) => handleStateChange("description", value)}
                 />
 
-                <FormField
+                {/* <FormField
                     title="website"
-                    state={form.website}
+                    // state={form.website}
                     placeholder="Yelpcamp.com"
                     setState={(value) => handleStateChange("website", value)}
-                />
+                /> */}
 
                 {/* <FormField
                     title="price"
