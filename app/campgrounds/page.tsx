@@ -43,6 +43,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   // console.log(`data is: ${data}`)
 
   const postsToDisplay = data?.postCollection?.edges || []
+  const reversePosts = postsToDisplay.reverse()
   console.log(postsToDisplay)
 
   if (postsToDisplay.length === 0){
@@ -55,7 +56,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
 
   return (
     <section className='projects-grid py-20 px-8'> 
-      {postsToDisplay.map(({ node }: { node: PostInterface}) => (
+      {reversePosts.map(({ node }: { node: PostInterface}) => (
         <PostCard
           key={`${node.id}`}
           id={node?.id}
