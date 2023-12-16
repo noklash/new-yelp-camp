@@ -40,7 +40,7 @@ export const revalidate = 0;
 const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   const data = await fetchAllPosts(endcursor) as PostSearch
   // const data = await getUserPosts(id)
-  console.log(`data is: ${data}`)
+  // console.log(`data is: ${data}`)
 
   const postsToDisplay = data?.postCollection?.edges || []
   console.log(postsToDisplay)
@@ -54,7 +54,7 @@ const campgrounds = async ({ searchParams: { endcursor} }: Props ) => {
   }
 
   return (
-    <section className='projects-grid'> 
+    <section className='projects-grid py-20 px-8'> 
       {postsToDisplay.map(({ node }: { node: PostInterface}) => (
         <PostCard
           key={`${node.id}`}

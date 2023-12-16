@@ -84,8 +84,11 @@ export const authOptions: NextAuthOptions = {
                 console.log("Error checking if user exists: ", error.message);
                 return false;
             }
-        }
+        },
         // here
+        async redirect({ url, baseUrl}){
+            return url.startsWith(baseUrl) ? baseUrl + '/campgrounds' : url
+        }
     }
 }
 

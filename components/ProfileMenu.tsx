@@ -5,6 +5,7 @@ import Image from "next/image";
 import { signOut } from "next-auth/react";
 import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { IoSettingsOutline } from "react-icons/io5";
 
 import { SessionInterface } from "@/common.types";
 
@@ -17,13 +18,14 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
             <div>
                 <div className="flexCenter" onMouseEnter={() => setOpenModal(true)}>
                     {session?.user?.image && (
-                        <Image
-                            src={session.user.image}
-                            width={40}
-                            height={40}
-                            className="rounded-full"
-                            alt="user profile image"
-                        />
+                        // <Image
+                        //     src={session.user.image}
+                        //     width={40}
+                        //     height={40}
+                        //     className="rounded-full"
+                        //     alt="user profile image"
+                        // />
+                        <div className="mx-6"><IoSettingsOutline size={38} /></div>
 
                     )}
                 </div>

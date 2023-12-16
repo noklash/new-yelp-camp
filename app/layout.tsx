@@ -1,9 +1,9 @@
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
-import { usePathname } from 'next/navigation'
-import { LayoutProvider } from './layoutProvider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Discover amazing camping locations',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -22,12 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-         {/* <LayoutProvider> */}
-         <Navbar/>
+        
+         {/* <Navbar/> */}
         <main>
         {children}
         </main>
-        {/* </LayoutProvider> */}
       </body>
     </html>
   )

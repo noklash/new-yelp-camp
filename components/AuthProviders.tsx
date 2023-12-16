@@ -33,12 +33,12 @@ const AuthProviders = () => {
 
     if (providers) {
         return (
-            <div className=''>
+            <>
                 {/* {Object.values(providers).map((provider: Provider, i) => (
                     <Button key={i} title='Sign In' handleClick={() => signIn("github")} />
                 ))} */}
-                <Link href="/api/auth/signin" className="text-black mx-4 font-bold">Sign In</Link>
-            </div>
+                <Link href="/api/auth/signin" className="btnn hover:bg-white hover:text-black text-center pt-1 font-bold">Sign In</Link>
+            </>
         )
     }
 }
