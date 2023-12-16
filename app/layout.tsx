@@ -8,8 +8,8 @@ import Navbar from '@/components/Navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Yelp Camp',
-  description: 'Discover amazing camping locations',
+  title: 'Discovery',
+  description: 'Discover and share beautiful locations and ideas',
 }
 
 export default async function RootLayout({
