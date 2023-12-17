@@ -5,6 +5,9 @@ import { getCurrentUser } from "@/lib/session";
 import Modal from "@/components/Modal";
 import { getPostDetails } from "@/lib/actions";
 import { PostInterface } from "@/common.types";
+import PostDescription from "@/components/PostDescription";
+
+
 
 const Post = async ({ params: { id } }: { params: { id: string } }) => {
     const session = await getCurrentUser()
@@ -31,6 +34,8 @@ const Post = async ({ params: { id } }: { params: { id: string } }) => {
                             className="rounded-full"
                         />
                     </Link>
+
+                        
 
                     <div className="flex-1 flexStart flex-col gap-1">
                         <p className="self-start text-lg font-semibold">
@@ -61,10 +66,13 @@ const Post = async ({ params: { id } }: { params: { id: string } }) => {
                     alt="poster"
                 />
             </section>
-            <section className="flexCenter flex-col mt-20">
-                <p className="max-w-5xl text-xl font-normal">
-                    {postDetails?.description}
-                </p>
+
+                
+
+            <section className="flexCenter flex-col mt-5">
+                
+                 <PostDescription text={postDetails?.description} />
+                
 
                 {/* <div className="flex flex-wrap mt-5 gap-5">
                             <Link href={postDetails?.website} target="_blank" rel="noreferrer" className="flexCenter gap-2 text-sm font-medium text-primary-purple">

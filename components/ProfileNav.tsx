@@ -26,7 +26,9 @@ const ProfileNav = async () => {
 
               </>
             ) : (
-              <AuthProviders />
+              <div className="my-3 mx-4">
+                  <AuthProviders />
+              </div>
             )}
           
         </div>
