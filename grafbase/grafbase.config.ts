@@ -6,9 +6,7 @@ const User = g.model('User', {
   name: g.string().length({ min: 2, max: 100 }),
   email: g.string().unique(),
   avatarUrl: g.url(),
-  description: g.string().length({ min: 2, max: 1000 }).optional(),
-  // facebook: g.url().optional(),
-  // linkedinUrl: g.url().optional(), 
+  description: g.string().length({ min: 2, max: 1000 }).optional(), 
   posts: g.relation(() => Post).list().optional(),
 }).auth((rules) => {
   rules.public().read()
@@ -18,9 +16,7 @@ const User = g.model('User', {
 const Post = g.model('Post', {
   title: g.string().length({ min: 3 }),
   description: g.string(), 
-  image: g.url(),
-  // website: g.string(), 
-  // price: g.int(), 
+  image: g.url(), 
   country: g.string(),
   createdBy: g.relation(() => User),
 }).auth((rules) => {
