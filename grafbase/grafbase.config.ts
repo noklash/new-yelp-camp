@@ -57,6 +57,16 @@ const mongo = connector.MongoDB('MongoDB', {
 
 g.datasource(mongo)
 
+const User = g.model('User', {
+  name: g.string().length({ min: 2, max: 100 }),
+  email: g.string().unique(),
+  avatarUrl: g.url(),
+  description: g.string().length({ min: 2, max: 1000 }).optional(), 
+  posts: g.relation(() => Post).list().optional(),
+}).auth((rules) => {
+  rules.public().read()
+})
+
 const jwt = auth.JWT({
   issuer: 'grafbase',
   secret:  g.env('NEXTAUTH_SECRET')
