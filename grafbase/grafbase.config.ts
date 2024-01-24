@@ -56,7 +56,7 @@ const mongodb = connector.MongoDB('MongoDB', {
 // const User = 
 
 
-const post = g.type('Post', {
+const post = g.type('post', {
   title: g.string(),//.length({ min: 3 }),
   description: g.string(), 
   image: g.url(), 
@@ -64,12 +64,12 @@ const post = g.type('Post', {
   createdBy: g.string(),
 })
 
-const user = g.type('User', {
+const user = g.type('user', {
   name: g.string(),
   email: g.string(),
   avatarUrl: g.url(),
   description: g.string(),
-  posts: g.ref(post).list()
+  posts: g.string().list()
 })
 
 
