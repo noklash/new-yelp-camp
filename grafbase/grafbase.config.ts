@@ -53,23 +53,25 @@ const mongodb = connector.MongoDB('MongoDB', {
 
 
 // @ts-ignore
-const User = mongodb.model('User', {
+// const User = 
+mongodb.model('User', {
   name: g.string().length({ min: 2, max: 100 }),
   email: g.string().unique(),
   avatarUrl: g.url(),
   description: g.string().length({ min: 2, max: 1000 }).optional(), 
-  posts: g.ref(Post).list().optional(),
+  posts: g.ref('Post').list().optional(),
 }).auth((rules) => {
   rules.public().read()
 }).collection('users')
 
 // @ts-ignore
-const Post = mongodb.model('Post', {
+// const Post = 
+mongodb.model('Post', {
   title: g.string().length({ min: 3 }),
   description: g.string(), 
   image: g.url(), 
   country: g.string(),
-  createdBy: g.ref(User),
+  createdBy: g.ref('User').optional(),
 }).auth((rules) => {
   rules.public().read()
   rules.private().create().delete().update()
