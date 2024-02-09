@@ -59,7 +59,7 @@ mongodb.model('Post', {
 g.datasource(mongodb)
 
 const jwt = auth.JWT({
-  issuer: 'grafbase',
+  issuer: g.env('ISSUER_URL'),
   secret:  g.env('NEXTAUTH_SECRET')
 })
 
